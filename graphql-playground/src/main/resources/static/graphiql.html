@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Local GraphiQL</title>
+    <link rel="stylesheet" href="/vendor/graphiql/graphiql.min.css" />
+    <link rel="stylesheet" href="/vendor/graphiql-explorer/style.css" />
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+      }
+    </style>
+</head>
+<body>
+<div id="graphiql" style="height: 100vh;"></div>
+
+<script src="/vendor/react/react.production.min.js"></script>
+<script src="/vendor/react/react-dom.production.min.js"></script>
+<script src="/vendor/graphiql/graphiql.min.js"></script>
+<script src="/vendor/graphiql-explorer/index.umd.js"></script>
+
+<script>
+      const fetcher = GraphiQL.createFetcher({ url: '/graphql', wsUrl: 'ws://localhost:8080/graphql' });
+
+      const explorerPlugin = GraphiQLPluginExplorer.explorerPlugin();
+
+      ReactDOM.render(
+        React.createElement(GraphiQL, {
+          fetcher,
+          defaultEditorToolsVisibility: true,
+          plugins: [explorerPlugin],
+        }),
+        document.getElementById('graphiql')
+      );
+    </script>
+</body>
+</html>
