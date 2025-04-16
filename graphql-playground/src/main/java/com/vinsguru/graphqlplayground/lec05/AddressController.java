@@ -15,6 +15,4 @@ public class AddressController {
           Address.create(customer.getName() + " street", customer.getName() + " city" )
         );
     }
-
-
 }
