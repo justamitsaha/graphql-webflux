@@ -13,6 +13,7 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 public class CustomerController {
@@ -42,6 +43,11 @@ public class CustomerController {
     public Mono<Map<Customer, List<CustomerOrderDto>>> orders(List<Customer> list){
         System.out.println("Orders method invoked for " + list);
         return this.orderService.fetchOrdersAsMap(list);
+    }
+
+    @SchemaMapping(typeName = "Customer")
+    public Mono<Integer> age() {
+        return Mono.just(100);
     }
 
 }
