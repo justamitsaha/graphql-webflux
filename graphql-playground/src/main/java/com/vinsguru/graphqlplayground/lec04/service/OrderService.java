@@ -30,22 +30,28 @@ public class OrderService {
             )
     );
 
-    public Flux<CustomerOrderDto> ordersByCustomerName(String name){
+    public Flux<CustomerOrderDto> ordersByCustomerName(String name) {
         return Flux.fromIterable(map.getOrDefault(name, Collections.emptyList()));
     }
 
-    public Flux<List<CustomerOrderDto>> ordersByCustomerNames(List<String> names){
+    public Flux<List<CustomerOrderDto>> ordersByCustomerNames(List<String> names) {
+//        return Flux.fromIterable(names)
+//                .flatMap(this::fetchOrders);
+        //returns empty list for null values
+//        return Flux.fromIterable(names)
+//                .flatMap(n -> fetchOrders(n).defaultIfEmpty(Collections.emptyList()));
         return Flux.fromIterable(names)
                 .flatMapSequential(n -> fetchOrders(n).defaultIfEmpty(Collections.emptyList()));
     }
 
     // some source
-    private Mono<List<CustomerOrderDto>> fetchOrders(String name){
+    private Mono<List<CustomerOrderDto>> fetchOrders(String name) {
+        //return Mono.justOrEmpty(map.get(name));
         return Mono.justOrEmpty(map.get(name))
                 .delayElement(Duration.ofMillis(ThreadLocalRandom.current().nextInt(0, 500)));
     }
 
-    public Mono<Map<Customer, List<CustomerOrderDto>>> fetchOrdersAsMap(List<Customer> customers){
+    public Mono<Map<Customer, List<CustomerOrderDto>>> fetchOrdersAsMap(List<Customer> customers) {
         return Flux.fromIterable(customers)
                 .map(c -> Tuples.of(c, map.getOrDefault(c.getName(), Collections.emptyList())))
                 .collectMap(
