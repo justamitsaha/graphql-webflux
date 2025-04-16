@@ -32,4 +32,12 @@ public class CustomerController {
                 .take(limit);
     }
 
+    /*@SchemaMapping(typeName = "Customer")
+    public Flux<CustomerOrderDto> orders(Customer customer){
+        System.out.println("Orders method invoked for " + customer.getName());
+        return this.orderService.ordersByCustomerName(customer.getName());
+    }*/
+
+
+
 }
