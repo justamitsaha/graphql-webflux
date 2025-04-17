@@ -3,6 +3,7 @@ package com.vinsguru.graphqlplayground.lec05;
 import com.vinsguru.graphqlplayground.lec05.dto.Customer;
 import com.vinsguru.graphqlplayground.lec05.service.CustomerService;
 import graphql.schema.DataFetchingEnvironment;
+import graphql.schema.DataFetchingFieldSelectionSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
@@ -24,5 +25,14 @@ public class CustomerController {
         );
         return this.service.allCustomers();
     }
+
+
+//    @QueryMapping
+//    public Flux<Customer> customers(DataFetchingFieldSelectionSet selectionSet){
+//        System.out.println(
+//                "customer : " + selectionSet.getFields()
+//        );
+//        return this.service.allCustomers();
+//    }
 
 }
