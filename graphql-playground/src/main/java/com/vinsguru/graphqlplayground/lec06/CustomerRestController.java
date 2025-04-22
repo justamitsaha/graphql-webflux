@@ -27,5 +27,4 @@ public class CustomerRestController {
                                 .map(l -> CustomerWithOrder.create(c.getId(), c.getName(), c.getAge(), c.getCity(), l))
                 );
     }
-
 }

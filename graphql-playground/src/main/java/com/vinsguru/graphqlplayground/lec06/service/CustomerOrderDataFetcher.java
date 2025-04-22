@@ -37,5 +37,4 @@ public class CustomerOrderDataFetcher {
                 .doOnNext(customerWithOrder::setOrders)
                 .thenReturn(customerWithOrder);
     }
-
 }
