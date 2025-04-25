@@ -7,7 +7,6 @@ import org.springframework.graphql.execution.RuntimeWiringConfigurer;
 
 @Configuration
 public class ScalarConfig {
-
     @Bean
     public RuntimeWiringConfigurer configurer(){
         return c -> c
@@ -21,5 +20,4 @@ public class ScalarConfig {
                 .scalar(ExtendedScalars.DateTime)
                 .scalar(ExtendedScalars.Object);
     }
-
 }

@@ -7,16 +7,14 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class FieldGlobPatternController {
 
-
     @QueryMapping
     public Object level1(DataFetchingFieldSelectionSet selectionSet){
-        System.out.println(selectionSet.contains("level2"));
-        System.out.println(selectionSet.contains("level2/level3"));
-        System.out.println(selectionSet.contains("**/level3"));
-        System.out.println(selectionSet.contains("level2/**/level5"));
-
+        System.out.println("level1 -->" +selectionSet.contains("level1"));      // false
+        System.out.println("level2 -->" +selectionSet.contains("level2"));      //true
+        System.out.println("level2/level3 -->" +selectionSet.contains("level2/level3")); //true
+        System.out.println("*/level3 -->" +selectionSet.contains("*/level3"));  //true
+        System.out.println("level2/*/level5 -->" +selectionSet.contains("level2/*/level5")); //false
+        System.out.println("level2/**/level5 -->" +selectionSet.contains("level2/**/level5")); //true
         return null;
     }
-
-
 }

@@ -13,8 +13,9 @@ public class DataFetcherWiringConfig {
     private CustomerOrderDataFetcher dataFetcher;
 
     @Bean
-    public RuntimeWiringConfigurer configurer(){
-        return c -> c.type("Query", b -> b.dataFetcher("customers", dataFetcher));
+    public RuntimeWiringConfigurer configurer() {
+        return c -> c.type("Query",
+                b -> b.dataFetcher("customers",
+                        dataFetcher));
     }
-
 }
