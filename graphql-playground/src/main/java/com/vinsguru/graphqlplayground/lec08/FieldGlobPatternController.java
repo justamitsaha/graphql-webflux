@@ -12,6 +12,7 @@ public class FieldGlobPatternController {
         System.out.println("level1 -->" +selectionSet.contains("level1"));      // false
         System.out.println("level2 -->" +selectionSet.contains("level2"));      //true
         System.out.println("level2/level3 -->" +selectionSet.contains("level2/level3")); //true
+        System.out.println("level3 -->" +selectionSet.contains("*/level3"));  //false
         System.out.println("*/level3 -->" +selectionSet.contains("*/level3"));  //true
         System.out.println("level2/*/level5 -->" +selectionSet.contains("level2/*/level5")); //false
         System.out.println("level2/**/level5 -->" +selectionSet.contains("level2/**/level5")); //true
