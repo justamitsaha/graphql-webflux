@@ -19,7 +19,7 @@ public class ProductController {
                 FruitDto.create("apple", 2, LocalDate.now().plusDays(5)),
                 Electronics.create("mac book", 600, "APPLE"),
                 Electronics.create("phone", 400, "SAMSUNG"),
-                Book.create("java", 40, "venkat")
+                Book.create("java", 40, "Amit")
         );
     }
 

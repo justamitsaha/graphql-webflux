@@ -19,5 +19,4 @@ public class GraphqlPlaygroundApplication {
 		SpringApplication.run(GraphqlPlaygroundApplication.class, args);
 		log.info("Startup url --> http://localhost:8080/graphiql.html");
 	}
-
 }

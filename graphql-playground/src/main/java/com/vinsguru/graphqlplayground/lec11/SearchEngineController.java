@@ -23,7 +23,7 @@ public class SearchEngineController {
             FruitDto.create("apple", LocalDate.now().plusDays(5)),
             Electronics.create("mac book", 600, "APPLE"),
             Electronics.create("phone", 400, "SAMSUNG"),
-            Book.create("java", "venkat")
+            Book.create("java", "Amit")
     );
 
     @QueryMapping

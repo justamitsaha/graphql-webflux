@@ -21,5 +21,4 @@ public class TypeResolverConfig {
         resolver.addMapping(FruitDto.class, "Fruit");
         return resolver;
     }
-
 }

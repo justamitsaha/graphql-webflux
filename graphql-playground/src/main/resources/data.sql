@@ -13,4 +13,4 @@ values
     ('sam', 10, 'atlanta'),
     ('mike', 15, 'houston'),
     ('jake', 20, 'miami'),
-    ('john', 30, 'las vegas');
+    ('Amit', 30, 'las vegas');
