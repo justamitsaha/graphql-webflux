@@ -29,7 +29,7 @@ public class SearchEngineController {
     @QueryMapping
     public Flux<Object> search(){
         return Mono.fromSupplier(() -> new ArrayList<>(list))
-                .doOnNext(Collections::shuffle)
+                .doOnNext(Collections::shuffle)             //shuffle to randomize data
                 .flatMapIterable(Function.identity())
                 .take(ThreadLocalRandom.current().nextInt(0, list.size()));
     }
