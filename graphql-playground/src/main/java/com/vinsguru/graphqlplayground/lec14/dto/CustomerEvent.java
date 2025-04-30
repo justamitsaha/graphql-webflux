@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor(staticName = "create")
 public class CustomerEvent {
-
     private Integer id;
     private Action action;
-
 }
