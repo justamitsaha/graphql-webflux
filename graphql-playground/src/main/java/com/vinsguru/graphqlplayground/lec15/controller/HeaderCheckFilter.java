@@ -16,5 +16,4 @@ public class HeaderCheckFilter implements WebFilter {
         return !isEmpty ? chain.filter(exchange) :
                 Mono.fromRunnable(() -> exchange.getResponse().setStatusCode(HttpStatus.BAD_REQUEST));
     }
-
 }
