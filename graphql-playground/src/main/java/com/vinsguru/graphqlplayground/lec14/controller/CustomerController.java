@@ -24,7 +24,8 @@ public class CustomerController {
 
     @QueryMapping
     public Mono<CustomerDto> customerById(@Argument Integer id){
-        return this.service.customerById(id);
+        throw new RuntimeException("Some wierd issue");
+        //return this.service.customerById(id);
     }
 
     @MutationMapping
