@@ -35,14 +35,16 @@ public class ClientDemo implements CommandLineRunner {
     }
 
     private Mono<Void> rawQueryDemo(){
-        String query = "                {\n" +
-                "                   a: customers{\n" +
-                "                        id\n" +
-                "                        name\n" +
-                "                        age\n" +
-                "                        city\n" +
-                "                    }\n" +
-                "                }";
+        String query = """
+                                {
+                                   a: customers{
+                                        id
+                                        name
+                                        age
+                                        city
+                                    }
+                                }\
+                """;
 
         Mono<List<CustomerDto>> mono = this.client.rawQuery(query)
                                                        .map(cr -> cr.field("a").toEntityList(CustomerDto.class));

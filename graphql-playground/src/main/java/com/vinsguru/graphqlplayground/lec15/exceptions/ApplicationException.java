@@ -8,7 +8,7 @@ public class ApplicationException extends RuntimeException{
 
     private final ErrorType errorType;
     private final String message;
-    private final Map<String, Object> extensions;
+    private final Map<String, Object> extensions; //store additional information
 
     public ApplicationException(ErrorType errorType, String message, Map<String, Object> extensions) {
         super(message);

@@ -28,10 +28,16 @@ public class CustomerController {
     }
 
     @QueryMapping
-    public Mono<Object> customerById(@Argument Integer id){
+    public Mono<Object> customerById2(@Argument Integer id){
         return this.service.customerById(id)
                 .cast(Object.class)
                 .switchIfEmpty(Mono.just(CustomerNotFound.create(id)));
+    }
+
+    @QueryMapping
+    public Mono<CustomerDto> customerById(@Argument Integer id){
+        return this.service.customerById(id)
+                .switchIfEmpty(ApplicationErrors.noSuchUser(id));
     }
 
     @MutationMapping

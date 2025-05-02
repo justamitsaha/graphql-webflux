@@ -1,12 +1,12 @@
+#type Query{
+#    customers: [Customer]!
+#    customerById(id: ID!): CustomerResponse!
+#}
+
 type Query{
     customers: [Customer]!
-    customerById(id: ID!): CustomerResponse!
-}
-
-type Mutation{
-    createCustomer(customer: CustomerInput!): Customer
-    updateCustomer(id: ID!, customer: CustomerInput!): Customer
-    deleteCustomer(id: ID!): DeleteResponse!
+    customerById(id: ID!): Customer
+    customerById2(id: ID!): CustomerResponse!
 }
 
 union CustomerResponse = Customer | CustomerNotFound
@@ -21,6 +21,12 @@ type Customer{
     name: String
     age: Int
     city: String
+}
+
+type Mutation{
+    createCustomer(customer: CustomerInput!): Customer
+    updateCustomer(id: ID!, customer: CustomerInput!): Customer
+    deleteCustomer(id: ID!): DeleteResponse!
 }
 
 input CustomerInput{
