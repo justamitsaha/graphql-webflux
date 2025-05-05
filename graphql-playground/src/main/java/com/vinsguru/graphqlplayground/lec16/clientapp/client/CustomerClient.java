@@ -31,7 +31,9 @@ public class CustomerClient {
 
     public Mono<GenericResponse<CustomerDto>> getCustomerById(Integer id) {
         return this.client
+                //file name
                 .documentName("customer-by-id")
+                //variables
                 .variable("id", id)
                 .execute()
                 .map(cr -> {

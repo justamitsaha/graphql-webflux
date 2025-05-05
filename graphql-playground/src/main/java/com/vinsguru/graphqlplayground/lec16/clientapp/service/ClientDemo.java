@@ -22,7 +22,9 @@ public class ClientDemo implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        this.subscriptionClient
+        //rawQueryDemo().subscribe();
+        getCustomerById().subscribe();
+        /*this.subscriptionClient
              .customerEvents()
              .doOnNext(e -> System.out.println(" ** " + e.toString() + " ** "))
              .subscribe();
@@ -31,7 +33,7 @@ public class ClientDemo implements CommandLineRunner {
                 .then(this.createCustomerDemo())
                 .then(this.updateCustomerDemo())
                 .then(this.deleteCustomerDemo())
-                .subscribe();
+                .subscribe();*/
     }
 
     private Mono<Void> rawQueryDemo(){
@@ -46,6 +48,7 @@ public class ClientDemo implements CommandLineRunner {
                                 }\
                 """;
 
+        //If we are not using alias "a" above then below also we need to add customer in field instead of "a"
         Mono<List<CustomerDto>> mono = this.client.rawQuery(query)
                                                        .map(cr -> cr.field("a").toEntityList(CustomerDto.class));
 
@@ -53,6 +56,10 @@ public class ClientDemo implements CommandLineRunner {
     }
 
     private Mono<Void> getCustomerById(){
+        return this.executor("getCustomerById", this.client.getCustomerById(1));
+    }
+
+    private Mono<Void> getCustomerById2(){
         return this.executor("getCustomerById", this.client.getCustomerByIdWithUnion(5));
     }
 
